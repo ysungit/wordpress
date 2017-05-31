@@ -1,8 +1,8 @@
-# Sample AWS CloudFormation Template to Install WordPress on(AWS) EC2 Instance
+# AWS CloudFormation Template to Install WordPress on(AWS) EC2 Instance
 
 ## Overview
 
-This is a sample AWS Cloudformation template which automate installation and configuration of WordPress in AWS, using Masterless Puppet.
+This is a AWS Cloudformation template which automate installation and configuration of WordPress in AWS, using Masterless Puppet.
 
 Puppet module used in this template: https://forge.puppet.com/hunner/wordpress
 
