@@ -2,9 +2,15 @@
 
 ## Overview
 
-This is a AWS Cloudformation template which automate installation and configuration of WordPress in AWS, using Masterless Puppet.
+This is a AWS Cloudformation template which automate the installation and configuration of WordPress in AWS, using Masterless Puppet.
 
 Puppet module used in this template: https://forge.puppet.com/hunner/wordpress
+
+AWS Cfn Template References:
+
+https://s3-us-west-2.amazonaws.com/cloudformation-templates-us-west-2/VPC_With_PublicIPs_And_DNS.template
+
+https://s3-us-west-2.amazonaws.com/cloudformation-templates-us-west-2/WordPress_Chef.template
 
 ## Capabilities
 
@@ -19,6 +25,13 @@ Puppet module used in this template: https://forge.puppet.com/hunner/wordpress
 
 - A valid AWS account (console or API)
 - Proper IAM role to access resources like VPCs, Subnets, InternetGateway Security Groups, EC2 instances, CloudFomration etc.
+- Amazon Linux is requred. The template could work on RHEL 6/7 and CentOS 6/7 with minor changes in 'UserData'
+
+#### Puppet is used to automate the following tasks:
+1) Create WordPress OS user and Group
+2) Install apache
+3) Install and create MySQL database as repository database for WordPress
+4) Install and configure WordPress
 
 
 ## Parameters
