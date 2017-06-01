@@ -12,6 +12,14 @@ https://s3-us-west-2.amazonaws.com/cloudformation-templates-us-west-2/VPC_With_P
 
 https://s3-us-west-2.amazonaws.com/cloudformation-templates-us-west-2/WordPress_Chef.template
 
+
+## Assumptions:
+
+- No Puppet master is required; standalone/masterless Puppet is used in this template
+- No external/existing database is available for WordPress; a new MySQL database is created on the web server host
+- No Disaster Recovery or High Availability is required (single EC2 instance running on a single AZ)
+- No scaling requirement (no AWS ELB and ASG etc)
+
 ## Capabilities
 
 #### Installation includes:
@@ -41,12 +49,7 @@ https://s3-us-west-2.amazonaws.com/cloudformation-templates-us-west-2/WordPress_
 3) Install, create and configure MySQL database (**puppetlabs-mysql** https://forge.puppet.com/puppetlabs/mysql)
 4) Install and configure WordPress (**hunner-wordpress** https://forge.puppet.com/hunner/wordpress)
 
-#### Assumptions:
 
-- No Puppet master is required; standalone/masterless Puppet is used in this template
-- No external/existing database is available for WordPress; a new MySQL database is created on the web server host
-- No Disaster Recovery or High Availability is required (single EC2 instance running on a single AZ)
-- No scaling requirement (no AWS ELB and ASG etc)
 
 
 ## CloudFormation Parameters
@@ -54,7 +57,7 @@ https://s3-us-west-2.amazonaws.com/cloudformation-templates-us-west-2/WordPress_
 - `DBRootPassword`: MySQL 'root' password
 - `EC2InstanceType`: Webserver instance type; default 't2.small'
 - `KeyName`: dropdown list of existing keypairs
-- `SSHLocation`: SSH (port 80) IP range; default to 0.0.0.0/0
+- `SSHLocation`: SSH (port 80) IP range; default '0.0.0.0/0'
 
 ## CloudFormation Outputs
 - `VPCId`: VPCId of the newly created VPC
