@@ -6,7 +6,7 @@ This is a AWS CloudFormation template which automates the installation and confi
 
 Puppet WordPress module is used in this template: https://forge.puppet.com/hunner/wordpress
 
-Sample AWS CloudFormation Template :
+Sample AWS CloudFormation Templates:
 
 https://s3-us-west-2.amazonaws.com/cloudformation-templates-us-west-2/VPC_With_PublicIPs_And_DNS.template
 
@@ -25,10 +25,10 @@ https://s3-us-west-2.amazonaws.com/cloudformation-templates-us-west-2/WordPress_
 #### Requires:
 
 - A valid AWS account (console or API)
-- Proper IAM role to access resources like VPCs, Subnets, InternetGateway Security Groups, EC2 instances, CloudFormation etc.
-- Amazon Linux is required. The template could work on RHEL 6/7 and CentOS 6/7 with changes in 'UserData'
+- Proper AWS IAM role to access AWS resources: VPCs, Subnets, Internet Gateway, Security Groups, EC2 instances, CloudFormation etc.
+- Amazon Linux is required. The template would work on RHEL 6/7 and CentOS 6/7 with some changes in 'UserData' (eg. additional steps to install aws-cfn-bootstrap)
 
-#### CloudFormation template creates the following AWS resources:
+#### The CloudFormation template creates the following AWS resources:
 - A VPC and a subnet
 - Network ACLs
 - An Internet Gateway and a Routing table
@@ -41,18 +41,18 @@ https://s3-us-west-2.amazonaws.com/cloudformation-templates-us-west-2/WordPress_
 3) Install, create and configure MySQL database (**puppetlabs-mysql** https://forge.puppet.com/puppetlabs/mysql)
 4) Install and configure WordPress (**hunner-wordpress** https://forge.puppet.com/hunner/wordpress)
 
-#### Limitations and Assumptions:
+#### Assumptions:
 
 - No Puppet master is required; standalone/masterless Puppet is used in this template
 - No external/existing database is available for WordPress; a new MySQL database is created on the web server host
-- No Disaster Recovery or High Availability is required ( single instance on a single AZ solution)
+- No Disaster Recovery or High Availability is required (single EC2 instance running on a single AZ)
 - No scaling requirement (no AWS ELB and ASG etc)
 
 
 ## CloudFormation Parameters
 - `DBPassword`: MySQL 'wordpress' password
 - `DBRootPassword`: MySQL 'root' password
-- `EC2InstanceType`: Web server instance type; default 't2.small'
+- `EC2InstanceType`: Webserver instance type; default 't2.small'
 - `KeyName`: dropdown list of existing keypairs
 - `SSHLocation`: SSH (port 80) IP range; default to 0.0.0.0/0
 
