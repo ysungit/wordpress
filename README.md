@@ -1,4 +1,4 @@
-# AWS CloudFormation Template to Install WordPress on(AWS) EC2 Instance
+# AWS CloudFormation Template to Install WordPress on an EC2 Instance
 
 ## Overview
 
